@@ -1,4 +1,4 @@
-# Should I Post It?
+<p align="center"><img height="100" src="./app/assets/sip_4.png" alt="SIP_Logo"></p>
 
 Should I Post It? (SIP for short) is an open-source webapp made to predict a draft post's reception on Social Media through the use of Predictive Analytics
 
@@ -14,11 +14,12 @@ Should I Post It? (SIP for short) is an open-source webapp made to predict a dra
 
 <b>Frontend</b>
 - Tailwind-CSS
-- Plotly.JS (nuxt-plotly)
+- Nuxt-Charts
+- Nuxt UI
 - Vue
 
 <b>Backend/Model Training</b>
-- TensorFlow
+- TensorFlow (tfjs)
 - Jupyter Notebook/Python
 - Kaggle (Source for Datasets)
 
@@ -27,7 +28,7 @@ Should I Post It? (SIP for short) is an open-source webapp made to predict a dra
 
 ## Release
 
-- Currently in Development
+- Alpha v1.0.1
 
 ## Credits
 
