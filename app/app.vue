@@ -1,7 +1,7 @@
 <script setup>
 useHead({
   meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    { name: 'viewport', content: 'width=device-width, initial-scale=1', description: "A webapp made to predict a draft post's reception on Social Media through Predictive Analytics" }
   ],
   link: [
     { rel: 'icon', href: '/favicon.ico' }
@@ -10,7 +10,6 @@ useHead({
     lang: 'en'
   },
   title: 'Should I Post It?',
-  description: "A webapp made to predict a draft post's reception on Social Media through Predictive Analytics"
 })
 
 const title = 'Nuxt Starter Template'

@@ -86,8 +86,8 @@
 
   onMounted(async () => {
       // These will now work because they only execute in the browser
-      const model = await tf.loadLayersModel('/models/tfjs_downgrade_model/model.json');
-      const vocabResponse = await fetch('/models/tfjs_downgrade_model/vocab.json');
+      const model = await tf.loadLayersModel('/models/tfjs_extended_model/model.json');
+      const vocabResponse = await fetch('/models/tfjs_extended_model/vocab.json');
       const vocab: string[] = await vocabResponse.json();
 
       vocab.forEach((word, index) => {
