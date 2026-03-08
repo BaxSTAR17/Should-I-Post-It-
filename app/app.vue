@@ -8,7 +8,9 @@ useHead({
   ],
   htmlAttrs: {
     lang: 'en'
-  }
+  },
+  title: 'Should I Post It?',
+  description: "A webapp made to predict a draft post's reception on Social Media through Predictive Analytics"
 })
 
 const title = 'Nuxt Starter Template'
