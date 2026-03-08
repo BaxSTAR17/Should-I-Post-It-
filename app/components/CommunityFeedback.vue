@@ -21,7 +21,7 @@
     for(let type of types!) {
         if(primary_percentage <= type.percent) {
             secondary_percentage = primary_percentage
-            secondary.value = primary.value
+            if(secondary_percentage > 0) secondary.value = primary.value
             primary_percentage = type.percent;
             primary.value = type.label;
         }
@@ -56,7 +56,7 @@
             <div class="position-absolute w-full h-full flex flex-col justify-center items-center gap-5">
                 <p class="text-center text-red-300"><b class="text-red-300 text-3xl">RED FLAG</b></p>
                 <UIcon name="tabler:flag-x" class="text-red-400 text-9xl"/>
-                <p class="text-center text-red-300 m-0 p-3">IMPORTANT: Your post has a <b>HIGH</b> chance of being reported.</p>
+                <p class="text-center text-red-300 m-0"><strong>IMPORTANT:</strong> <br>Your post has a <b>HIGH</b> chance of being reported.</p>
             </div>
          </section>
          <section class="h-full w-full flex flex-col gap-5" v-if="current_flag == 'yellow' || current_flag == 'red'">
@@ -65,7 +65,7 @@
                 <b class="text-red-300 text-3xl text-center underline">{{ primary?.replace('_', ' ').toUpperCase() }}</b>
                 <b class="text-red-300 text-4xl text-center">{{ primary_percentage }}%</b>
             </div>
-            <div class="h-full w-full bg-red-900/30 rounded-xl flex flex-col justify-center items-center" v-if="secondary != 'unknown'">
+            <div class="h-full w-full bg-red-900/30 rounded-xl flex flex-col justify-center items-center" v-if="secondary != 'unknown' && secondary != ''">
                 <b class="text-red-300 text-3xl text-center underline">{{ secondary?.replace('_', ' ').toUpperCase() }}</b>
                 <b class="text-red-300 text-4xl text-center">{{ secondary_percentage }}%</b>
             </div>

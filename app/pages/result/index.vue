@@ -44,7 +44,7 @@
     percent: number;
   }
 
-  //const type_labels = ['unknown', 'sarcasm', 'harassment', 'hate_speech']
+  //const type_labels = ['unknown', 'sarcasm', 'harassment', 'hate_speech', 'insult', 'obscene', 'offensive_language', 'severe_toxic', 'threat', 'toxic']
 
   interface LevelsPrediction {
     positive: number;
