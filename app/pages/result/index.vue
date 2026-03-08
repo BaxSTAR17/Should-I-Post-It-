@@ -27,7 +27,7 @@
       </div>
       <UButton
           @click="goHome"
-          class="ml-4 bg-[#200047] text-white hover:bg-[#370082]"
+          class="ml-4 bg-[#200047] text-white hover:bg-[#370082] cursor-pointer"
       >
         TRY ANOTHER POST
       </UButton>
