@@ -53,7 +53,7 @@ This sub-section will only appear if the Feedback Flag is <b>YELLOW</b> or <b>RE
 - <b>Sarcasm</b>: Ironic texts that are used to mock reality
 
 ### Content Analysis
-The Content Analysis section analyzes each word of the post and pairs them with reception scores for better scrutinization of what word contributed to the overall reception score of the post
+The Content Analysis section analyzes each word of the post and pairs them with reception scores for better scrutinization of what word contributed to the overall reception score of the post. This section will only appear if the post has more than one word.
 
 ## Minor Features
 - Text to Speech play and pause buttons for the textbox
