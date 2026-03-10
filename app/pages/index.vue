@@ -80,30 +80,23 @@
   const MAX_LEN = 200
 
   let loaded_model: tf.LayersModel;
-  let downgrade_loaded_model: tf.LayersModel;
   let loaded_vocab: Map<string, number> = new Map();
-  let downgrade_loaded_vocab: Map<string, number> = new Map();
 
   const prediction_data = ref<Prediction | null>(null);
 
   onMounted(async () => {
+      sharedText.value = '';
       // These will now work because they only execute in the browser
-      const model = await tf.loadLayersModel('/models/tfjs_extended_model/model.json');
-      const downgrade_model = await tf.loadLayersModel('/models/tfjs_downgrade_model/model.json');
-      const vocabResponse = await fetch('/models/tfjs_extended_model/vocab.json');
-      const downgrade_vocabResponse = await fetch('/models/tfjs_downgrade_model/vocab.json');
+      const model = await tf.loadLayersModel('/models/tfjs_extended_model_3/model.json');
+      const vocabResponse = await fetch('/models/tfjs_extended_model_3/vocab.json');
       const vocab: string[] = await vocabResponse.json();
-      const downgrade_vocab: string[] = await downgrade_vocabResponse.json();
 
       vocab.forEach((word, index) => {
         loaded_vocab.set(word, index);
       });
-      downgrade_vocab.forEach((word, index) => {
-        downgrade_loaded_vocab.set(word, index);
-      });
+
       // Assign to your refs
       loaded_model = model;
-      downgrade_loaded_model = downgrade_model;
   });
 
   const tokenize = (text: string) => {
@@ -124,32 +117,12 @@
     return tf.tensor2d([sequence], [1, MAX_LEN], 'int32');
   }
 
-  const downgrade_tokenize = (text: string) => {
-    // Basic cleanup to match your Python vectorizer
-    const sequence = text.toLowerCase()
-      .replace(/[^\w\s]/g, '')
-      .split(/\s+/)
-      .map(word => {
-        const id = downgrade_loaded_vocab.get(word) || 1;
-        return id >= 19969 ? 1 : id;
-      }) // 1 is usually the [UNK] token
-      .slice(0, MAX_LEN);
-
-    // Padding (Pre-padding or Post-padding based on your training)
-    while (sequence.length < MAX_LEN) {
-      sequence.push(0); // 0 is usually the [PAD] token
-    }
-    return tf.tensor2d([sequence], [1, MAX_LEN], 'int32');
-  }
-
   const predict = async (text: string, content_mode: boolean) => {
     loading.value = true;
     const inputTensor = tokenize(text);
-    const downgrade_inputTensor = downgrade_tokenize(text);
     if (loaded_model){
       //const input = tf.tensor([text], [1], 'string');
-      const [_score, typeOutput] = loaded_model.predict(inputTensor) as tf.Tensor[];
-      const [scoreOutput, _type] = downgrade_loaded_model.predict(downgrade_inputTensor) as tf.Tensor[];
+      const [scoreOutput, typeOutput] = loaded_model.predict(inputTensor) as tf.Tensor[];
 
       const scores = await scoreOutput!.data(); // [Pos, Neu, Neg]
       const types = await typeOutput!.data();   // [unknown, sarcasm, etc.]

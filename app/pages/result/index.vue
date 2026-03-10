@@ -89,9 +89,9 @@
     if(sharedText.value.split(' ').length <= 1) {
       max.value = 2;
     }
+    console.log(sharedPrediction.value.types)
 
     const goHome = () => {
-      sharedText.value = '';
       sharedContentScore.value = [];
       navigateTo('/');
     };
