@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen bg-[#180033]">
+  <div class="h-screen bg-[#180033]" v-if="sharedText.trim()">
     <Header />
     <div class="px-10 py-5 flex flex-col items-center gap-5">
       <div class="w-full flex flex-row gap-10">
@@ -32,6 +32,16 @@
         TRY ANOTHER POST
       </UButton>
     </div>
+  </div>
+  <div class="h-screen bg-[#180033] flex flex-col justify-center items-center" v-else>
+    <UIcon name="tabler:mood-puzzled" class="text-white" size="250"/>
+    <h1 class="text-white text-3xl">There is no post to be evaluated.</h1>
+    <UButton
+        @click="navigateTo('/');"
+        class="ml-4 mt-5 bg-purple-600 cursor-pointer text-white hover:bg-[#370082]"
+    >
+      MAKE A POST
+    </UButton>
   </div>
 </template>
 

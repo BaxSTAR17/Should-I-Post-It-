@@ -4,7 +4,7 @@
             v-model="textContent"
             placeholder="Enter your post here..."
             type="text"
-            class="w-full h-full resize-none"
+            class="w-full h-full resize-none text-white"
             :ui="{base: 'bg-[#200047]'}" 
             :rows="rows"
             :disabled="disabled" 
@@ -12,10 +12,10 @@
         />
 
         <div class="absolute bottom-3 right-3 flex gap-2">
-            <UButton @click="speakText" :disabled="isSpeaking" size="sm" class="cursor-pointer">
+            <UButton title="Play Text Audio" @click="speakText" :disabled="isSpeaking" size="sm" class="cursor-pointer">
                 <UIcon name="tabler:volume" class="text-xl text-gray-900"/>
             </UButton>
-            <UButton @click="stopSpeech" :disabled="!isSpeaking" size="sm" class="cursor-pointer">
+            <UButton title="Pause Text Audio" @click="stopSpeech" :disabled="!isSpeaking" size="sm" class="cursor-pointer">
                 <UIcon name="tabler:player-pause-filled" class="text-xl text-gray-900"/>
             </UButton>
         </div>

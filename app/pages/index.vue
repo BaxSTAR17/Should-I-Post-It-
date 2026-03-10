@@ -4,14 +4,14 @@
     <div class="text-center">
       <h2 class="text-white text-2xl font-semibold mt-10">Welcome to Should I Post It?</h2>
       <p class="text-white mt-4 text-center box-border px-10">
-        SIP is an online tool for all those hardcore social media posters. This tool is used to predict the reception of your social media post using our own built-in model trained using tens of thousands of existing social media posts. This guarantees that you understand thee value of your content next time you click post!
+        SIP is an online tool for all those hardcore social media posters. This tool is used to predict the reception of your social media post using our own built-in model trained using tens of thousands of existing social media posts. This guarantees that you understand the value of your content next time you click post!
       </p>
     </div>
     <div class="px-10 py-5 w-screen flex flex-col items-center gap-5">
       <div class="w-full flex flex-col gap-2">
         <InputArea v-model="sharedText" :rows="19"/>
       </div>
-      <div v-if="sharedText" class="flex gap-3">
+      <div v-if="sharedText.trim()" class="flex gap-3">
           <UButton
             @click="predict(sharedText, true)"
             class="ml-4 bg-purple-600 cursor-pointer text-white hover:bg-[#370082]"
