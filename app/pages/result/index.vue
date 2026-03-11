@@ -9,7 +9,7 @@
 
         <div class="grow flex flex-col">
             <div class="m-2 p-2 grow text-white h-120">
-                <ReceptionAnalysis v-if="resultMode == 0" :positive="sharedPrediction.levels.positive" :divided="sharedPrediction.levels.neutral" :negative="sharedPrediction.levels.negative"></ReceptionAnalysis>
+                <ReceptionAnalysis v-if="resultMode == 0" :positive="sharedPrediction.levels.negative" :divided="sharedPrediction.levels.neutral" :negative="sharedPrediction.levels.positive"></ReceptionAnalysis>
                 <CommunityFeedback v-if="resultMode == 1" :types="sharedPrediction.types"></CommunityFeedback>
                 <ContentAnalysis v-if="resultMode == 2"></ContentAnalysis>
             </div>
