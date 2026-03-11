@@ -131,9 +131,9 @@
 
       const result = {
         levels: { 
-          positive: Number((scores[0]!*100).toFixed(2)), 
+          positive: Number((scores[2]!*100).toFixed(2)), 
           neutral: Number((scores[1]!*100).toFixed(2)), 
-          negative: Number((scores[2]!*100).toFixed(2))
+          negative: Number((scores[0]!*100).toFixed(2))
         },
         types: Array.from(types).map((e, i) => ({
           label: type_labels[i]!,
